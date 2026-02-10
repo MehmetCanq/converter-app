@@ -1,0 +1,26 @@
+body {
+  background-color: #394a81;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: rgb(51, 172, 209);
+  text-align: center;
+  margin-top: 50px;
+}
+.container {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+.result {
+    text-align: center;
+  margin-top: 20px;
+}.converter-box {
+  background-color: #596eb1;
+  border: 2px solid #394a81;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+}
+
