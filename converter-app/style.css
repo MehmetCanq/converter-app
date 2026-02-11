@@ -1,22 +1,31 @@
 body {
     font-family: sans-serif;
-    background-color: #d8d9db;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
+    background-image: url("https://img.freepik.com/premium-vector/waves-eroded-coral-reefs-shore-aerial-drone-image-top-looking-down-surf-waves-roll_1050166-9904.jpg?semt=ais_hybrid&w=740&q=80");
+    background-size: default;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
 }
 
+
 .container {
-    background: white;
+    background: rgba(0, 60, 130, 0.45);
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    box-shadow:  -20px -20px 8px rgba(119, 7, 7, 0.1);
     width: 350px;
 }
 
-h2 { text-align: center; color: #333; }
+h2 { text-align: center; color: #000000; }
 
 .form-group { margin-bottom: 15px; }
 label { display: block; margin-bottom: 5px; font-weight: bold; }
@@ -28,13 +37,33 @@ input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radiu
 .arrow { font-size: 1.5rem; }
 
 .result {
-    background: #e7f3ff;
+    background: #01386e7a;
     padding: 15px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #0056b3; 
     min-height: 25px; 
+    margin-bottom: 10px;
     
 }
+
+button {
+        background-color: #49686686;
+        color: none;
+        font-size: 16px;
+        size: 100px;
+        border-radius: 999px;
+        border: #516665 1px solid;
+        padding: 10px 20px;
+        align-content: center;
+        display: block;
+        margin: 0 auto;
+        cursor: pointer
+     
+    }
+    button:hover {
+        color: white;
+        transform: scale(1.1);
+    }

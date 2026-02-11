@@ -4,7 +4,7 @@ ve sıcaklık birimlerinden birini seçerek onun birimlerinide birbiriyle dönü
 
 2.Karşılaşılan zorluklar 
 En çok zorlandığım yer aynı iki değeri dönüştürmeye çalışıldığında yaşadım 
-bende çözümnü iptal ederek değil hata mesajı verip return etmekte buldum.
+bende biri seçiliyken diğerini iptal ettim yani seçilemez hale getirdim
 
 3.Öğrenilenler
 HTML, CSS ve JavaScript birlikte kullanılarak işlevsel bir web arayüzü oluşturma deneyimi kazanıldı.
@@ -21,4 +21,5 @@ Kullanıcı deneyimi (UX) açısından sade ama anlaşılır bir arayüz tasarla
 4.Proje sürecinde sorduğum sorular 
 Seçilen aynı iki birimi nasıl engelleyebilirim.
 Özel durumlar için kontroller neler.
+Negatife gitmemesi gereken değerleri nasıl engellerim 
 

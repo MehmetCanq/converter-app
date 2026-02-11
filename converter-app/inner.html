@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <label>Kategori:</label>
-            <select id="categorySelect" onchange="updateUnits()">
+            <select id="categorySelect">
                 <option value="length">Uzunluk</option>
                 <option value="weight">Ağırlık</option>
                 <option value="temperature">Sıcaklık</option>
@@ -23,20 +23,21 @@
 
         <div class="form-group">
             <label>Miktar Girin:</label>
-            <input type="number" id="inputValue" placeholder="0" oninput="calculate()">
+            <input type="number" min="0" id="inputValue" placeholder="0">
         </div>
 
         <div class="row">
             <div class="col">
                 <label>Bu Birimden:</label>
-                <select id="fromUnit" onchange="calculate()"></select>
+                <select id="fromUnit"></select>
             </div>
             <div class="col">
                 <label>Bu Birime:</label>
-                <select id="toUnit" onchange="calculate()"></select>
+                <select id="toUnit"></select>
             </div>
         </div>
-
+        <div class="button" ><button id="swapButton">Birim<br>değişimi </button> </div>
+                <br>
         <div class="result" id="resultText">
             Sonuç: 0
         </div>
