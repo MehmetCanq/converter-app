@@ -1,50 +1,164 @@
-const secim = [Uzunluk, Agırlık, Sıcaklık, Litre,] 
-const Uzunluk = ["kilo", "gram", "pound"];
-const Agırlık = ["metre", "kilometre", "mile"];
-const Sıcaklık = ["santigrat", "fahrenheit", "kelvin"];
-const Litre = ["litre", "mililitre", "galon"];
 
-secim.forEach(secim => {
-    secim = degisken;
-    degisken.addEventListener("click", () => {
-        const inputValue = document.getElementById("inputValue").value;
-        const conversionType = document.getElementById("conversionType").value;
-        for (let i = 0; i < degisken.length; i++) {
-            if (conversionType === "Agırlık"&& inputValue !== " "&& !isNaN(inputValue)&& inputValue > 0 && inputValue < 10000 ) {
-                if (degisken[i] === KG && inputValue) {
-                    kgv = inputValue;
-                    gram = kilo * 1000;
-                    pound = kilo * 2.20462;
-                    console.log(`Kilo: ${kilo} kg, Gram: ${gram} g, Pound: ${pound} lb`);
-                }}
-            else if (conversionType === "Uzunluk" && inputValue !== " "&& !isNaN(inputValue)&& inputValue > 0 && inputValue < 10000) {
-                if (degisken[i] === M) {
-                    kgv = inputValue;
-                    kilometre = metre / 1000;
-                    mile = metre * 0.000621371;
-                    console.log(`Metre: ${metre} m, Kilometre: ${kilometre} km, Mile: ${mile} mi`);
-                }
-            else if (conversionType === "Sıcaklık" && inputValue !== " "&& !isNaN(inputValue)&& inputValue > -273.15 && inputValue < 10000) {
-                if (degisken[i] === C) {
-                    kgv = inputValue;
-                    fahrenheit = (santigrat * 9/5) + 32;
-                    kelvin = santigrat + 273.15;
-                    console.log(`Santigrat: ${santigrat} °C, Fahrenheit: ${fahrenheit} °F, Kelvin: ${kelvin} K`);
-                }
-               else if (conversionType === "Litre" && inputValue !== " "&& !isNaN(inputValue)&& inputValue > 0 && inputValue < 10000 ) {
-                    if (degisken[i] === L) {
-                        kgv = inputValue;
-                        mililitre = litre * 1000;
-                        galon = litre * 0.264172;
-                        console.log(`Litre: ${litre} L, Mililitre: ${mililitre} mL, Galon: ${galon} gal`);
-                    }
-                }
-                else {
-                    console.log("Lütfen geçerli bir dönüşüm türü seçin.");
-                }
+const categorySelect = document.getElementById("categorySelect");
+const fromUnitSelect = document.getElementById("fromUnit");
+const toUnitSelect = document.getElementById("toUnit");
+const inputValue = document.getElementById("inputValue");
+const resultText = document.getElementById("resultText");
 
-            }
+
+function updateUnits() {
+    const category = categorySelect.value;
+    let optionsHTML = "";
+
+    switch (category) {
+        case "length":
+            optionsHTML = `
+                <option value="Metre">Metre</option>
+                <option value="Santimetre">Santimetre</option>
+                <option value="Mil">Mil</option>
+                <option value="İnç">İnç</option>
+            `;
+            break;
+
+        case "weight":
+            optionsHTML = `
+                <option value="Kilogram">Kilogram</option>
+                <option value="Gram">Gram</option>
+                <option value="Pound">Pound</option>
+            `;
+            break;
+
+        case "temperature":
+            optionsHTML = `
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            `;
+            break;
+
+        case "volume":
+            optionsHTML = `
+                <option value="Litre">Litre</option>
+                <option value="Mililitre">Mililitre</option>
+                <option value="Galon">Galon</option>
+            `;
+            break;
+    }
+
+    
+    fromUnitSelect.innerHTML = optionsHTML;
+    toUnitSelect.innerHTML = optionsHTML;
+
+    
+    inputValue.value = "";
+    resultText.textContent = "Değer girin...";
+    resultText.style.color = "#0056b3";
+}
+
+
+function calculate() {
+    const category = categorySelect.value;
+    const from = fromUnitSelect.value;
+    const to = toUnitSelect.value;
+    const amount = parseFloat(inputValue.value);
+
+    if (isNaN(amount)) {
+        resultText.textContent = "Lütfen bir sayı girin!";
+        resultText.style.color = "red";
+        return;
+    }
+
+   
+    if (from === to) {
+        resultText.textContent = "Hata: Aynı birimleri dönüştüremezsiniz!";
+        resultText.style.color = "red";
+        return;
+    }
+
+  
+    if (amount < 0) {
+        if (category === "length" || category === "weight" || category === "volume") {
+            resultText.textContent = "Hata: Bu değer negatif olamaz!";
+            resultText.style.color = "red";
+            return;
+        }
+        if (category === "temperature" && from === "Kelvin") {
+            resultText.textContent = "Hata: Kelvin negatif olamaz!";
+            resultText.style.color = "red";
+            return;
         }
     }
-})});
 
+   
+    resultText.style.color = "#0056b3";
+
+    let result = 0;
+
+    
+    switch (category) {
+        
+        case "weight": 
+            let gramDegeri = 0;
+            if (from === "Kilogram") gramDegeri = amount * 1000;
+            else if (from === "Gram") gramDegeri = amount;
+            else if (from === "Pound") gramDegeri = amount * 453.592;
+
+            if (to === "Kilogram") result = gramDegeri / 1000;
+            else if (to === "Gram") result = gramDegeri;
+            else if (to === "Pound") result = gramDegeri / 453.592;
+            break;
+
+        case "length":
+            let metreDegeri = 0;
+            if (from === "Metre") metreDegeri = amount;
+            else if (from === "Santimetre") metreDegeri = amount / 100;
+            else if (from === "Mil") metreDegeri = amount * 1609.34;
+            else if (from === "İnç") metreDegeri = amount * 0.0254;
+
+            if (to === "Metre") result = metreDegeri;
+            else if (to === "Santimetre") result = metreDegeri * 100;
+            else if (to === "Mil") result = metreDegeri / 1609.34;
+            else if (to === "İnç") result = metreDegeri / 0.0254;
+            break;
+
+        case "volume": 
+            let litreDegeri = 0;
+            
+            
+            if (from === "Litre") litreDegeri = amount;
+            else if (from === "Mililitre") litreDegeri = amount / 1000;
+            else if (from === "Galon") litreDegeri = amount * 3.78541; 
+
+            
+            if (to === "Litre") result = litreDegeri;
+            else if (to === "Mililitre") result = litreDegeri * 1000;
+            else if (to === "Galon") result = litreDegeri / 3.78541;
+            break;
+
+        case "temperature": 
+            if (from === "Celsius") {
+                if (to === "Fahrenheit") result = (amount * 9/5) + 32;
+                else if (to === "Kelvin") result = amount + 273.15;
+            } 
+            else if (from === "Fahrenheit") {
+                if (to === "Celsius") result = (amount - 32) * 5/9;
+                else if (to === "Kelvin") result = (amount - 32) * 5/9 + 273.15;
+            }
+            else if (from === "Kelvin") {
+                if (to === "Celsius") result = amount - 273.15;
+                else if (to === "Fahrenheit") result = (amount - 273.15) * 9/5 + 32;
+            }
+            break;
+    }
+
+  
+    resultText.innerHTML = `Sonuç: <b>${result.toFixed(4)}</b> ${to}`;
+}
+
+categorySelect.addEventListener("change", updateUnits);
+fromUnitSelect.addEventListener("change", calculate);
+toUnitSelect.addEventListener("change", calculate);
+inputValue.addEventListener("input", calculate);
+
+
+updateUnits();

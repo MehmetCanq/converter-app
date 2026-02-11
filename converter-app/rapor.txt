@@ -1,0 +1,24 @@
+1.Ne yaptım
+Proje kapsamında bir birim dönüştürücü programı yaptım . Kullanıcıların hacim, ağırlık,uzunluk 
+ve sıcaklık birimlerinden birini seçerek onun birimlerinide birbiriyle dönüşüm yapmalarını sağladım.
+
+2.Karşılaşılan zorluklar 
+En çok zorlandığım yer aynı iki değeri dönüştürmeye çalışıldığında yaşadım 
+bende çözümnü iptal ederek değil hata mesajı verip return etmekte buldum.
+
+3.Öğrenilenler
+HTML, CSS ve JavaScript birlikte kullanılarak işlevsel bir web arayüzü oluşturma deneyimi kazanıldı.
+Veri yapıları (object, array) kullanılarak kategori-birim ilişkilerinin nasıl düzenlenebileceği öğrenildi.
+Olay tabanlı programlama (event-driven logic) kavramı pratikte uygulandı.
+addEventListener ile kullanıcı etkileşimlerinin (değer girişi, seçim değişimi, tıklama vb.) nasıl yakalanacağı öğrenildi.
+Dinamik içerik yönetimi yaparak HTML elemanlarının JavaScript üzerinden güncellenmesi sağlandı.
+Koşul yapıları ve kontrol ifadeleri ile hatalı veri girişlerinin önlenmesi üzerine çalışıldı.
+ParseFloat, toFixed ve Number() fonksiyonlarıyla sayısal dönüşümler üzerinde pratik yapıldı.
+CSS ile responsive (duyarlı) tasarım ilkeleri uygulanarak her ekrana uygun bir görünüm elde edildi.
+Temiz kod yazımı ve modüler yapı konularında dikkat edilmesi gereken noktalar öğrenildi.
+Kullanıcı deneyimi (UX) açısından sade ama anlaşılır bir arayüz tasarlamanın önemi fark edildi.
+
+4.Proje sürecinde sorduğum sorular 
+Seçilen aynı iki birimi nasıl engelleyebilirim.
+Özel durumlar için kontroller neler.
+

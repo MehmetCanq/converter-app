@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birim Dönüştürücü</title>
+    <title>Gelişmiş Dönüştürücü</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Converter App</h1>
-        <p>Birimleri anında dönüştürün.</p>
+        <h2>Converter App</h2>
 
-        <div class="input-group">
-            <label>Kategori Seçin:</label>
-            <select id="categorySelect">
-                <option value="Uzunluk">Uzunluk </option>
-                <option value="Agırlık">Agırlık</option>
-                <option value="Sıcaklık">Sıcaklık </option>
-                <option value="Litre">Litre</option>
+        <div class="form-group">
+            <label>Kategori:</label>
+            <select id="categorySelect" onchange="updateUnits()">
+                <option value="length">Uzunluk</option>
+                <option value="weight">Ağırlık</option>
+                <option value="temperature">Sıcaklık</option>
+                <option value="volume">Hacim</option>
             </select>
         </div>
 
-        <div class="converter-box">
-            <div class="input-group">
-                <label>Hangi Birimden:</label>
-                <select id="unitSelect">
-                    </select>
-                <label> Hangi Birime?</label>
-                <select id="unitSelect"></select>
-            </div>
+        <div class="form-group">
+            <label>Miktar Girin:</label>
+            <input type="number" id="inputValue" placeholder="0" oninput="calculate()">
+        </div>
 
-            <div class="input-group">
-                <label>Değer Girin:</label>
-                <input type="number" id="inputValue" placeholder="Sayı girin..." step="any">
+        <div class="row">
+            <div class="col">
+                <label>Bu Birimden:</label>
+                <select id="fromUnit" onchange="calculate()"></select>
+            </div>
+            <div class="col">
+                <label>Bu Birime:</label>
+                <select id="toUnit" onchange="calculate()"></select>
             </div>
         </div>
 
-        <div class="result-box" id="resultOutput">
-            <p>Sonuçlar burada görünecek...</p>
+        <div class="result" id="resultText">
+            Sonuç: 0
         </div>
     </div>
 
