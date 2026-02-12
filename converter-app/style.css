@@ -18,14 +18,14 @@ body {
 
 
 .container {
-    background: rgba(0, 60, 130, 0.45);
+    background: rgba(255, 255, 255, 0.507);
     padding: 2rem;
     border-radius: 50px;
     box-shadow:  -20px -20px 8px rgba(119, 7, 7, 0.1);
     width: 350px;
 }
 
-h2 { text-align: center; color: #000000; }
+h2 { text-align: center; color: #000000; margin-bottom: 30px; font-size: 30px; }
 
 .form-group { margin-bottom: 15px; }
 label { display: block; margin-bottom: 5px; font-weight: bold; }
@@ -52,7 +52,7 @@ input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radiu
 button {
         background-color: #49686686;
         color: none;
-        font-size: 16px;
+        font-size: 17px;
         size: 100px;
         border-radius: 999px;
         border: #516665 1px solid;
@@ -67,3 +67,15 @@ button {
         color: white;
         transform: scale(1.1);
     }
+    label {
+        color: #000000;
+        font-weight: bold;
+        font-size: 19px;
+    }
+    #categorySelect,#fromUnit, #toUnit, #inputValue {
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 18px;
+    }
+     
+    

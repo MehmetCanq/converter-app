@@ -25,6 +25,10 @@ function calculate() {
     const to = toUnitSelect.value;
     const amount = parseFloat(inputValue.value);
 
+    if (category === "length" || category === "weight" || category === "volume"|| from ==="Kelvin") {
+        inputValue.value = inputValue.value.replace(/[^0-9.-]/g, '');
+    }
+
     if (isNaN(amount)) {
         resultText.textContent = "Lütfen bir sayı girin!";
         resultText.style.color = "white";
@@ -108,7 +112,7 @@ function calculate() {
             }
             break;
     }
-    resultText.style.color = "#ffffff8e";
+    resultText.style.color = "#ffffffc0";
     resultText.innerHTML = `Sonuç: <b>${result.toFixed(4)}</b> ${to}`;
 
 }
@@ -173,4 +177,4 @@ toUnitSelect.addEventListener("change", calculate);
 inputValue.addEventListener("input", calculate);
 swapButton.addEventListener("click", swapUnits);
 
-updateUnits();
+
